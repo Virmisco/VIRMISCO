@@ -1,0 +1,816 @@
+<h2>Edit photomicrograph</h2>
+<form class="form-horizontal" name="form01" data-ng-submit="vm.saveForm()">
+    <p>
+        <a href="#/organism/{{vm.photomicrograph.organismId}}" class="btn btn-default">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            back to the organism details
+        </a>
+    </p>
+    <div class="row">
+        <fieldset class="col-md-4">
+            <legend class="col-sm-offset-3 col-md-offset-5 col-sm-9 col-md-7" title="{{vm.photomicrograph.id}}">
+                Photomicrograph
+            </legend>
+            <div class="form-group">
+                <label for="fc-title" class="control-label col-sm-3 col-md-5">Title</label>
+                <div class="col-sm9 col-md-7">
+                    <input type="text"
+                            id="fc-title"
+                            name="fcTitle"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.title"
+                            required="required" />
+                </div>
+                <div class="col-sm-9 col-md-7 col-sm-offset-3 col-md-offset-5"
+                        data-ng-messages="form01.fcTitle.$error"
+                        role="alert">
+                    <div data-ng-message="required">A Title is required.</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-detailOfPhotomicrographId" class="control-label col-sm-3 col-md-5">Detail of
+                    photomicrograph id
+                </label>
+                <div class="col-sm9 col-md-7">
+                    <input type="text"
+                            id="fc-detailOfPhotomicrographId"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.detailOfPhotomicrographId" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-detailOfHotspotX" class="control-label col-sm-3 col-md-5">Detail of hotspot x</label>
+                <div class="col-sm9 col-md-7">
+                    <input type="text"
+                            id="fc-detailOfHotspotX"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.detailOfHotspotX" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-detailOfHotspotY" class="control-label col-sm-3 col-md-5">Detail of hotspot y</label>
+                <div class="col-sm9 col-md-7">
+                    <input type="text"
+                            id="fc-detailOfHotspotY"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.detailOfHotspotY" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-creatorCapturing" class="control-label col-sm-3 col-md-5">Creator capturing</label>
+                <div class="col-sm9 col-md-7">
+                    <input type="text"
+                            id="fc-creatorCapturing"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.creatorCapturing" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-creatorProcessing" class="control-label col-sm-3 col-md-5">Creator processing</label>
+                <div class="col-sm9 col-md-7">
+                    <input type="text"
+                            id="fc-creatorProcessing"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.creatorProcessing" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-fileRealPath" class="control-label col-sm-3 col-md-5">File real path</label>
+                <div class="col-sm9 col-md-7">
+                    <input type="text"
+                            id="fc-fileRealPath"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.fileRealPath" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-fileUri" class="control-label col-sm-3 col-md-5">File uri</label>
+                <div class="col-sm9 col-md-7">
+                    <input type="text"
+                            id="fc-fileUri"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.fileUri" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-fileCreationTime" class="control-label col-sm-3 col-md-5">File creation time</label>
+                <div class="col-sm9 col-md-7">
+                    <input type="text"
+                            id="fc-fileCreationTime"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.fileCreationTime" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-fileModificationTime" class="control-label col-sm-3 col-md-5">File modification time
+                </label>
+                <div class="col-sm9 col-md-7">
+                    <input type="text"
+                            id="fc-fileModificationTime"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.fileModificationTime" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-presentationUri" class="control-label col-sm-3 col-md-5">Presentation uri</label>
+                <div class="col-sm9 col-md-7">
+                    <input type="text"
+                            id="fc-presentationUri"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.presentationUri" />
+                </div>
+            </div>
+        </fieldset>
+        <fieldset class="col-md-4">
+            <legend class="col-sm-offset-3 col-md-offset-5 col-sm-9 col-md-7">Digitization data</legend>
+            <div class="form-group">
+                <label for="fc-digitizationDataWidth" class="control-label col-sm-3 col-md-5">Width
+                </label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-digitizationDataWidth"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.digitizationDataWidth" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-digitizationDataHeight" class="control-label col-sm-3 col-md-5">Height
+                </label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-digitizationDataHeight"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.digitizationDataHeight" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-digitizationDataColorDepth" class="control-label col-sm-3 col-md-5">Color depth
+                </label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-digitizationDataColorDepth"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.digitizationDataColorDepth" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-digitizationDataReproductionScaleHorizontal" class="control-label col-sm-3 col-md-5">
+                    Reproduction scale horizontal
+                </label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-digitizationDataReproductionScaleHorizontal"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.digitizationDataReproductionScaleHorizontal" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-digitizationDataReproductionScaleVertical" class="control-label col-sm-3 col-md-5">
+                    Reproduction scale vertical
+                </label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-digitizationDataReproductionScaleVertical"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.digitizationDataReproductionScaleVertical" />
+                </div>
+            </div>
+        </fieldset>
+        <fieldset class="col-md-4">
+            <legend class="col-sm-offset-3 col-md-offset-5 col-sm-9 col-md-7">Microscope settings</legend>
+            <div class="form-group">
+                <label for="fc-microscopeSettingsContrastMethod" class="control-label col-sm-3 col-md-5">
+                    Contrast method
+                </label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-microscopeSettingsContrastMethod"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.microscopeSettingsContrastMethod" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-microscopeSettingsDicPrismPosition" class="control-label col-sm-3 col-md-5">
+                    Dic prism position
+                </label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-microscopeSettingsDicPrismPosition"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.microscopeSettingsDicPrismPosition" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-microscopeSettingsApertureDiaphragmOpening" class="control-label col-sm-3 col-md-5">
+                    Aperture diaphragm opening
+                </label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-microscopeSettingsApertureDiaphragmOpening"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.microscopeSettingsApertureDiaphragmOpening" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-microscopeSettingsFieldDiaphragmOpening" class="control-label col-sm-3 col-md-5">
+                    Field diaphragm opening
+                </label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-microscopeSettingsFieldDiaphragmOpening"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.microscopeSettingsFieldDiaphragmOpening" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-microscopeSettingsMagnificationChangerMagnification"
+                        class="control-label col-sm-3 col-md-5">Magnification changer magnification
+                </label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-microscopeSettingsMagnificationChangerMagnification"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.microscopeSettingsMagnificationChangerMagnification" />
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <div class="row">
+        <fieldset class="col-md-4">
+            <legend class="col-sm-offset-3 col-md-offset-5 col-sm-9 col-md-7">Microscope</legend>
+            <div class="form-group">
+                <label for="fc-microscopeStandMaker" class="control-label col-sm-3 col-md-5">Stand maker
+                </label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-microscopeStandMaker"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.microscopeStandMaker" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-microscopeStandName" class="control-label col-sm-3 col-md-5">Stand name
+                </label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-microscopeStandName"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.microscopeStandName" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-microscopeStandArticleOrSerialNumber" class="control-label col-sm-3 col-md-5">Stand
+                    article or serial number
+                </label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-microscopeStandArticleOrSerialNumber"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.microscopeStandArticleOrSerialNumber" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-microscopeCondenserMaker" class="control-label col-sm-3 col-md-5">Condenser maker
+                </label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-microscopeCondenserMaker"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.microscopeCondenserMaker" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-microscopeCondenserName" class="control-label col-sm-3 col-md-5">Condenser name
+                </label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-microscopeCondenserName"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.microscopeCondenserName" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-microscopeCondenserArticleOrSerialNumber" class="control-label col-sm-3 col-md-5">
+                    Condenser article or serial number
+                </label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-microscopeCondenserArticleOrSerialNumber"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.microscopeCondenserArticleOrSerialNumber" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-microscopeCondenserTurretPrismMaker" class="control-label col-sm-3 col-md-5">Condenser
+                    turret prism maker
+                </label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-microscopeCondenserTurretPrismMaker"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.microscopeCondenserTurretPrismMaker" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-microscopeCondenserTurretPrismName" class="control-label col-sm-3 col-md-5">Condenser
+                    turret prism name
+                </label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-microscopeCondenserTurretPrismName"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.microscopeCondenserTurretPrismName" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-microscopeCondenserTurretPrismArticleOrSerialNumber"
+                        class="control-label col-sm-3 col-md-5">Condenser turret prism article or serial number
+                </label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-microscopeCondenserTurretPrismArticleOrSerialNumber"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.microscopeCondenserTurretPrismArticleOrSerialNumber" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-microscopeNosepieceObjectiveMaker" class="control-label col-sm-3 col-md-5">Nosepiece
+                    objective maker
+                </label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-microscopeNosepieceObjectiveMaker"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.microscopeNosepieceObjectiveMaker" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-microscopeNosepieceObjectiveName" class="control-label col-sm-3 col-md-5">Nosepiece
+                    objective name
+                </label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-microscopeNosepieceObjectiveName"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.microscopeNosepieceObjectiveName" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-microscopeNosepieceObjectiveArticleOrSerialNumber"
+                        class="control-label col-sm-3 col-md-5">Nosepiece objective article or serial number
+                </label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-microscopeNosepieceObjectiveArticleOrSerialNumber"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.microscopeNosepieceObjectiveArticleOrSerialNumber" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-microscopeNosepieceObjectiveType" class="control-label col-sm-3 col-md-5">Nosepiece
+                    objective type
+                </label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-microscopeNosepieceObjectiveType"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.microscopeNosepieceObjectiveType" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-microscopeNosepieceObjectiveNumericalAperture" class="control-label col-sm-3 col-md-5">
+                    Nosepiece objective numerical aperture
+                </label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-microscopeNosepieceObjectiveNumericalAperture"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.microscopeNosepieceObjectiveNumericalAperture" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-microscopeNosepieceObjectiveMagnification" class="control-label col-sm-3 col-md-5">
+                    Nosepiece objective magnification
+                </label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-microscopeNosepieceObjectiveMagnification"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.microscopeNosepieceObjectiveMagnification" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-microscopeDicTurretPrismMaker" class="control-label col-sm-3 col-md-5">Dic turret prism
+                    maker
+                </label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-microscopeDicTurretPrismMaker"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.microscopeDicTurretPrismMaker" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-microscopeDicTurretPrismName" class="control-label col-sm-3 col-md-5">Dic turret prism
+                    name
+                </label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-microscopeDicTurretPrismName"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.microscopeDicTurretPrismName" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-microscopeDicTurretPrismArticleOrSerialNumber" class="control-label col-sm-3 col-md-5">
+                    Dic turret prism article or serial number
+                </label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-microscopeDicTurretPrismArticleOrSerialNumber"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.microscopeDicTurretPrismArticleOrSerialNumber" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-microscopeMagnificationChangerMaker" class="control-label col-sm-3 col-md-5">
+                    Magnification changer maker
+                </label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-microscopeMagnificationChangerMaker"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.microscopeMagnificationChangerMaker" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-microscopeMagnificationChangerName" class="control-label col-sm-3 col-md-5">Magnification
+                    changer name
+                </label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-microscopeMagnificationChangerName"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.microscopeMagnificationChangerName" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-microscopeMagnificationChangerArticleOrSerialNumber"
+                        class="control-label col-sm-3 col-md-5">Magnification changer article or serial number
+                </label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-microscopeMagnificationChangerArticleOrSerialNumber"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.microscopeMagnificationChangerArticleOrSerialNumber" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-microscopePortsMaker" class="control-label col-sm-3 col-md-5">Ports maker
+                </label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-microscopePortsMaker"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.microscopePortsMaker" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-microscopePortsName" class="control-label col-sm-3 col-md-5">Ports name
+                </label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-microscopePortsName"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.microscopePortsName" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-microscopePortsArticleOrSerialNumber" class="control-label col-sm-3 col-md-5">Ports
+                    article or serial number
+                </label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-microscopePortsArticleOrSerialNumber"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.microscopePortsArticleOrSerialNumber" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-microscopeCameraMountAdapterMaker" class="control-label col-sm-3 col-md-5">Camera mount
+                    adapter maker
+                </label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-microscopeCameraMountAdapterMaker"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.microscopeCameraMountAdapterMaker" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-microscopeCameraMountAdapterName" class="control-label col-sm-3 col-md-5">Camera mount
+                    adapter name
+                </label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-microscopeCameraMountAdapterName"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.microscopeCameraMountAdapterName" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-microscopeCameraMountAdapterMagnification" class="control-label col-sm-3 col-md-5">Camera
+                    mount adapter magnification
+                </label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-microscopeCameraMountAdapterMagnification"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.microscopeCameraMountAdapterMagnification" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-microscopeCameraMountAdapterArticleOrSerialNumber"
+                        class="control-label col-sm-3 col-md-5">Camera mount adapter article or serial number
+                </label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-microscopeCameraMountAdapterArticleOrSerialNumber"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.microscopeCameraMountAdapterArticleOrSerialNumber" />
+                </div>
+            </div>
+        </fieldset>
+        <fieldset class="col-md-4">
+            <legend class="col-sm-offset-3 col-md-offset-5 col-sm-9 col-md-7">Camera</legend>
+            <div class="form-group">
+                <label for="fc-cameraCameraMaker" class="control-label col-sm-3 col-md-5">Maker</label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-cameraCameraMaker"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.cameraCameraMaker" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-cameraCameraName" class="control-label col-sm-3 col-md-5">Name</label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-cameraCameraName"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.cameraCameraName" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-cameraCameraArticleOrSerialNumber" class="control-label col-sm-3 col-md-5">Camera article
+                    or serial number
+                </label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-cameraCameraArticleOrSerialNumber"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.cameraCameraArticleOrSerialNumber" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-cameraSensorMaker" class="control-label col-sm-3 col-md-5">Sensor maker</label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-cameraSensorMaker"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.cameraSensorMaker" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-cameraSensorName" class="control-label col-sm-3 col-md-5">Sensor name</label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-cameraSensorName"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.cameraSensorName" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-cameraSensorArticleOrSerialNumber" class="control-label col-sm-3 col-md-5">Sensor article
+                    or serial number
+                </label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-cameraSensorArticleOrSerialNumber"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.cameraSensorArticleOrSerialNumber" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-cameraOpticalFormat" class="control-label col-sm-3 col-md-5">Optical format
+                </label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-cameraOpticalFormat"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.cameraOpticalFormat" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-cameraCaptureFormat" class="control-label col-sm-3 col-md-5">Capture format
+                </label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-cameraCaptureFormat"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.cameraCaptureFormat" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-cameraChipWidth" class="control-label col-sm-3 col-md-5">Chip width</label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-cameraChipWidth"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.cameraChipWidth" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-cameraChipHeight" class="control-label col-sm-3 col-md-5">Chip height</label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-cameraChipHeight"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.cameraChipHeight" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-cameraPixelWidth" class="control-label col-sm-3 col-md-5">Pixel width</label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-cameraPixelWidth"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.cameraPixelWidth" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-cameraPixelHeight" class="control-label col-sm-3 col-md-5">Pixel height</label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-cameraPixelHeight"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.cameraPixelHeight" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-cameraActivePixelsHor" class="control-label col-sm-3 col-md-5">Active pixels hor
+                </label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-cameraActivePixelsHor"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.cameraActivePixelsHor" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-cameraActivePixelsVer" class="control-label col-sm-3 col-md-5">Active pixels ver
+                </label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-cameraActivePixelsVer"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.cameraActivePixelsVer" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-cameraColorFilterArray" class="control-label col-sm-3 col-md-5">Color filter array
+                </label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-cameraColorFilterArray"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.cameraColorFilterArray" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-cameraProtectiveColorFilter" class="control-label col-sm-3 col-md-5">Protective color
+                    filter
+                </label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-cameraProtectiveColorFilter"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.cameraProtectiveColorFilter" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-cameraAdcResolution" class="control-label col-sm-3 col-md-5">Adc resolution
+                </label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-cameraAdcResolution"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.cameraAdcResolution" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-cameraDynamicRange" class="control-label col-sm-3 col-md-5">Dynamic range</label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-cameraDynamicRange"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.cameraDynamicRange" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-cameraSnrMax" class="control-label col-sm-3 col-md-5">Snr max</label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-cameraSnrMax"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.cameraSnrMax" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fc-cameraReadoutNoise" class="control-label col-sm-3 col-md-5">Readout noise</label>
+                <div class="col-sm-9 col-md-7">
+                    <input type="text"
+                            id="fc-cameraReadoutNoise"
+                            class="form-control"
+                            data-ng-model="vm.photomicrograph.cameraReadoutNoise" />
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <!--<fieldset data-ng-show="vm.uploads">
+        <legend>Focal plane images</legend>
+        <table class="table table-condensed">
+            <thead>
+                <tr>
+                    <th id="cl01" scope="col">Title</th>
+                    <th id="cl02" scope="col">Creator capturing</th>
+                    <th id="cl03" scope="col">Creator processing</th>
+                    <th id="cl04" scope="col">DIC prism position</th>
+                    <th>Show</th>
+                    <th>Other Metadata</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="photomicrograph in vm.photomicrographs">
+                    <td>
+                        <input class="form-control"
+                                type="text"
+                                aria-labelledby="cl01"
+                                data-ng-model="photomicrograph.title" />
+                    </td>
+                    <td>
+                        <input class="form-control"
+                                type="text"
+                                aria-labelledby="cl02"
+                                data-ng-model="photomicrograph.creatorCapturing" />
+                    </td>
+                    <td>
+                        <input class="form-control"
+                                type="text"
+                                aria-labelledby="cl03"
+                                data-ng-model="photomicrograph.creatorProcessing" />
+                    </td>
+                    <td>
+                        <input class="form-control"
+                                type="number"
+                                min="-10000"
+                                max="10000"
+                                aria-labelledby="cl04"
+                                data-ng-model="photomicrograph.microscopeSettingsDicPrismPosition" />
+                    </td>
+                    <td>
+                        <a class="btn btn-default form-control"
+                                target="_blank"
+                                data-ng-show="photomicrograph.presentationUri"
+                                data-ng-href="{{photomicrograph.presentationUri}}">in viewer
+                        </a>
+                        <a class="btn btn-default form-control"
+                                target="_blank"
+                                data-ng-hide="photomicrograph.presentationUri"
+                                data-ng-href="{{photomicrograph.fileUri}}">long shot
+                        </a>
+                    </td>
+                    <td>
+                        <a class="btn btn-default form-control" data-ng-href="#/photomicrograph/{{photomicrograph.id}}">show / edit</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </fieldset>-->
+    <div class="row">
+        <div class="col-md-12">
+            <div data-ng-if="vm.alert"
+                    data-uib-alert=""
+                    data-type="{{vm.alert.type}}"
+                    data-dismiss-on-timeout="5000"
+                    data-close="vm.closeAlert()">
+                {{vm.alert.message}}
+            </div>
+        </div>
+    </div>
+    <p class="actions">
+        <button class="btn btn-primary" type="submit">Submit</button>
+        <button class="btn btn-default" type="button" data-ng-click="vm.resetForm()">Reset</button>
+        <button class="btn btn-danger" type="button" data-ng-if="vm.deletePhotomicrograph" data-ng-click="vm.deletePhotomicrograph()">Delete</button>
+    </p>
+</form>

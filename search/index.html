@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="vmsc" data-ng-strict-di="">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Search for digital photomicrographs</title>
+        <link rel="stylesheet" href="contao.css">
+        <link rel="stylesheet" href="bootstrap.css" />
+    </head>
+    <body id="top" class="firefox gecko">
+        <div id="wrapper">
+            <header id="header">
+                <div class="inside">
+                    <div class="banner">
+                        <img src="banner.png" alt="Banner" />
+                    </div>
+                </div>
+            </header>
+            <div id="container">
+                <aside id="left">
+                    <div class="inside">
+                        <!-- indexer::stop -->
+                        <nav class="mod_navigation block">
+                            <a href="#skipNavigation2" class="invisible">Skip navigation</a>
+                            <ul class="level_1" role="menubar">
+                                <li class="sibling first">
+                                    <a href="http://cms.virmisco.org/index.php/home.html"
+                                            title="Home"
+                                            class="sibling first"
+                                            role="menuitem">Home
+                                    </a>
+                                </li>
+                                <li class="active">
+                                    <span title="Search for specimen" class="active" role="menuitem">Search</span>
+                                </li>
+                                <li class="sibling">
+                                    <a href="http://cms.virmisco.org/index.php/manual.html"
+                                            title="Manual"
+                                            class="sibling"
+                                            role="menuitem">Manual
+                                    </a>
+                                </li>
+                                <li class="sibling">
+                                    <a href="http://cms.virmisco.org/index.php/contact.html" title="Contact" class="sibling" role="menuitem">
+                                        Contact
+                                    </a>
+                                </li>
+                                <li class="sibling">
+                                    <a href="http://cms.virmisco.org/index.php/about-us.html"
+                                            title="About us"
+                                            class="sibling"
+                                            role="menuitem">About us
+                                    </a>
+                                </li>
+                                <li class="sibling last">
+                                    <a href="http://cms.virmisco.org/index.php/terms-and-conditions.html"
+                                            title="Terms and Conditions"
+                                            class="sibling last"
+                                            role="menuitem">Terms and Conditions
+                                    </a>
+                                </li>
+                            </ul>
+                            <a id="skipNavigation2" class="invisible">&nbsp;</a>
+                        </nav>
+                        <!-- indexer::continue -->
+                    </div>
+                </aside>
+                <aside id="right">
+                    <div class="inside">
+                        <section class="links">
+                            <h1>Links</h1>
+                            <ul>
+                                <li>
+                                    <a href="http://www.senckenberg.de/">Senckenberg</a>
+                                </li>
+                                <li>
+                                    <a href="http://www.dfg.de/foerderung/programme/infrastruktur/lis/">LIS</a>
+                                </li>
+                                <li>
+                                    <a href="http://www.dfg.de/">DFG</a>
+                                </li>
+                            </ul>
+                        </section>
+                    </div>
+                </aside>
+                <div id="main">
+                    <div class="inside">
+                        <div class="mod_article first last block" id="searchtest">
+                            <div class="ce_text first last block">
+                                <h1>Search for digital photomicrographs</h1>
+
+                                <form class="form-horizontal" action="result.php" method="post">
+                                    <fieldset>
+                                        <legend>Full-text search</legend>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" name="search" placeholder="Enter keywords">
+                                                <span class="input-group-btn">
+                                                    <button class="btn btn-default" type="submit">Search</button>
+                                                </span>
+                                            </div>
+                                            <p class="help-block">Enter one or multiple words to gain results matching as many of them as possible.</p>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                                <form class="form-horizontal" action="result.php" method="post">
+                                    <fieldset data-ng-controller="AdvancedSearchController as vm">
+                                        <legend>Advanced search</legend>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label for="fc05" class="control-label col-sm-4">Country</label>
+                                                <div class="col-sm-8">
+                                                    <select id="fc05" class="form-control" name="country" data-ng-model="vm.country" data-ng-change="vm.countryChanged()" data-ng-options="country for country in vm.countries">
+                                                        <option value="">(all)</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="fc06" class="control-label col-sm-4">Province</label>
+                                                <div class="col-sm-8">
+                                                    <select id="fc06" class="form-control" name="province" data-ng-model="vm.province" data-ng-change="vm.provinceChanged()" data-ng-options="province as (province || '(not specified)') for province in vm.filteredProvinces">
+                                                        <option value="">(all)</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="fc07" class="control-label col-sm-4">Region</label>
+                                                <div class="col-sm-8">
+                                                    <select id="fc07" class="form-control" name="region" data-ng-model="vm.region" data-ng-change="vm.regionChanged()" data-ng-options="region as (region || '(not specified)') for region in vm.filteredRegions">
+                                                        <option value="">(all)</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="fc08" class="control-label col-sm-4">Place</label>
+                                                <div class="col-sm-8">
+                                                    <select id="fc08" class="form-control" name="place" data-ng-model="vm.place" data-ng-options="place for place in vm.filteredPlaces">
+                                                        <option value="">(all)</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="fc09" class="control-label col-sm-4">Date on or after</label>
+                                                <div class="col-sm-8">
+                                                    <div class="input-group">
+                                                        <input id="fc09"
+                                                                class="form-control"
+                                                                type="text"
+                                                                name="dateOnOrAfter"
+                                                                uib-datepicker-popup="yyyy-MM-dd"
+                                                                data-is-open="vm.dateOnOrAfterOpened"
+                                                                data-ng-model="vm.dateOnOrAfter" />
+                                                        <span class="input-group-btn">
+                                                            <button type="button"
+                                                                    class="btn btn-default"
+                                                                    ng-click="vm.dateOnOrAfterOpened = true">
+                                                                <i class="glyphicon glyphicon-calendar"></i>
+                                                            </button>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <label for="fc10" class="control-label col-sm-4">and before</label>
+                                                <div class="col-sm-8">
+                                                    <div class="input-group">
+                                                        <input id="fc10"
+                                                                class="form-control"
+                                                                type="text"
+                                                                name="dateBefore"
+                                                                uib-datepicker-popup="yyyy-MM-dd"
+                                                                data-is-open="vm.dateBeforeOpened"
+                                                                data-ng-model="vm.dateBefore" />
+                                                        <span class="input-group-btn">
+                                                            <button type="button"
+                                                                    class="btn btn-default"
+                                                                    ng-click="vm.dateBeforeOpened = true">
+                                                                <i class="glyphicon glyphicon-calendar"></i>
+                                                            </button>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <div class="form-group">
+                                                <label for="fc01" class="control-label col-sm-3">Quick-filter</label>
+                                                <div class="col-sm-9">
+                                                    <input id="fc01" class="form-control" type="search" data-ng-model="vm.taxonFilter" data-ng-change="vm.filterChanged()" autocomplete="off">
+                                                    <p class="help-block">
+                                                        Filter the list “Higher taxon” below by entering some initial letters of any taxon monomial above the genus rank.
+                                                        <br />
+                                                        This does <strong>not</strong> affect the actual search result when hitting the “Search” button.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="fc02" class="control-label col-sm-3">Higher taxon</label>
+                                                <div class="col-sm-9">
+                                                    <select id="fc02" class="form-control" name="higherTaxon" data-ng-model="vm.higherTaxon" data-ng-required="vm.taxonFilter" data-ng-change="vm.taxonChanged()" data-ng-options="[taxonMatch.above, taxonMatch.match, taxonMatch.below].join(' ') as [taxonMatch.match, taxonMatch.below].join(' ') group by taxonMatch.above for taxonMatch in vm.filteredHigherTaxa">
+                                                        <option value="" data-ng-disabled="vm.taxonFilter">(all)</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group" data-ng-show="vm.higherTaxon">
+                                                <label for="fc03" class="control-label col-sm-3">Genus</label>
+                                                <div class="col-sm-9">
+                                                    <select id="fc03" class="form-control" name="genus" data-ng-model="vm.genus" data-ng-change="vm.genusChanged()" data-ng-options="genusName for genusName in vm.filteredGenusNames">
+                                                        <option value="">(all)</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group" data-ng-show="vm.genus">
+                                                <label for="fc04" class="control-label col-sm-3">Species</label>
+                                                <div class="col-sm-9">
+                                                    <select id="fc04" class="form-control" name="species" data-ng-model="vm.species" data-ng-options="[species.genus, species.specificEpithet].join(' ') as [species.genus, species.specificEpithet].join(' ') for species in vm.filteredSpecies">
+                                                        <option value="">(all)</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <button class="btn btn-default pull-right" type="submit">Search</button>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer id="footer">
+                <div class="inside">
+                    <p>
+                        <a href="http://www.senckenberg.de/">Senckenberg</a>
+                        |
+                        <a href="index.php/contact.html">Contact</a>
+                        |
+                        <a href="index.php/terms-and-conditions.html">Terms &amp; Conditions</a>
+                    </p>
+                </div>
+            </footer>
+        </div>
+        <script src="../js/https_ajax.googleapis.com_ajax_libs_angularjs_1.5.8_angular.min.js" data-live-src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+        <script src="../js/ui-bootstrap-tpls-2.1.3.min.js"></script>
+        <script src="../js/modules/vmsc/module.js"></script>
+        <script src="../js/modules/vmsc/service/data-service.js"></script>
+        <script src="../js/modules/vmsc/service/higher-taxon-service.js"></script>
+        <script src="../js/modules/vmsc/service/location-service.js"></script>
+        <script src="../js/modules/vmsc/controller/advanced-search.js"></script>
+    </body>
+</html>

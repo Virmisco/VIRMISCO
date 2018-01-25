@@ -1,0 +1,452 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    /*vertical-align: baseline;*/
+    border: 0;
+    font-size: 100%;
+    /*outline: 0;*/
+    /*font-weight: inherit;*/
+    /*font-style: inherit;*/
+    /*font-family: inherit*/
+}
+
+body {
+    line-height: 1;
+    color: black;
+    background: white
+}
+
+table {
+    /*width: 100%;*/
+    /*margin-bottom: 1em;*/
+    /*border-collapse: separate;*/
+    /*border-spacing: 0*/
+}
+
+caption, th, td {
+    /*text-align: left;*/
+    /*border-bottom: 1px solid #424242;*/
+    /*font-weight: normal*/
+}
+
+th {
+    /*padding-left: .3em;*/
+    /*font-weight: bold;*/
+    /*color: #ebebeb;*/
+    /*background: #424242*/
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+    /*content: ""*/
+}
+
+blockquote, q {
+    /*quotes: "" ""*/
+}
+
+header, section, footer, aside, nav, article, figure {
+    display: block;
+    margin-left: auto
+}
+
+label, input[type=button], input[type=submit], button {
+    cursor: pointer
+}
+
+button {
+    width: auto;
+    overflow: visible
+}
+
+img {
+    -ms-interpolation-mode: bicubic
+}
+
+input, textarea, select {
+    margin: 0 0 1em;
+    padding: 5px;
+    border: 1px solid #999;
+    color: #666;
+    font: 400 1em Verdana, Sans-serif;
+    background: #fff
+}
+
+input:focus, textarea:focus, select:focus {
+    border: 1px solid #666;
+    color: #000;
+    background: #fff
+}
+
+body {
+    color: #444;
+    font: 14px/1.8em Lucida, sans-serif;
+    background: #fff;
+    -webkit-font-smoothing: antialiased
+}
+
+a, a:visited {
+    text-decoration: none;
+    color: #b44646;
+    -webkit-transition: color 0.2s ease;
+    -moz-transition: color 0.2s ease;
+    -ms-transition: color 0.2s ease;
+    -o-transition: color 0.2s ease;
+    transition: color 0.2s ease
+}
+
+a:hover, a:active {
+    text-decoration: none;
+    color: #e2595b
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: .6em;
+    line-height: 1.2em;
+    color: #000;
+    /**/ font-weight: normal;
+}
+
+h1 {
+    font-size: 2em
+}
+
+h2 {
+    font-size: 1.7em
+}
+
+h3 {
+    margin-top: 2em;
+    font-size: 1.5em
+}
+
+h4 {
+    margin-top: 2em;
+    font-size: 1.3em
+}
+
+p {
+    margin-bottom: 1em
+}
+
+ol, ul {
+    margin-bottom: 1em;
+    padding-left: 30px
+}
+
+b, strong {
+    font-weight: bold
+}
+
+i, em {
+    font-style: italic
+}
+
+u {
+    text-decoration: underline
+}
+
+abbr, acronym {
+    border-bottom: .1em dotted;
+    cursor: help
+}
+
+td, td img {
+    vertical-align: top
+}
+
+sub {
+    vertical-align: sub;
+    font-size: smaller
+}
+
+sup {
+    vertical-align: super;
+    font-size: smaller
+}
+
+code {
+    padding: 0 3px 1px;
+    font-family: Courier;
+    background: #eee
+}
+
+p code, li code {
+    margin: 0;
+    border: 1px solid #ddd
+}
+
+pre {
+    margin-bottom: 1em;
+    line-height: 1.2
+}
+
+blockquote {
+    padding-left: 10px;
+    border-left: 5px solid #ddd;
+    font-style: italic;
+    margin: 0 0 1em 15px
+}
+
+.inner {
+    width: 850px;
+    margin: 0 auto
+}
+
+#header {
+}
+
+#header a {
+}
+
+#header h1 a, #header a: {
+}
+
+#header h1 {
+}
+
+#header .nav {
+    float: right;
+    margin: 0;
+    padding: 0;
+    list-style: none
+}
+
+#header .nav li {
+    display: inline
+}
+
+#header .nav a {
+    margin-left: 20px;
+    font-weight: bold
+}
+
+.clearfix:before, .clearfix:after {
+    display: table;
+    content: " "
+}
+
+.clearfix:after {
+    clear: both
+}
+
+.clearfix {
+    *zoom: 1
+}
+
+/* common.css */
+html, body {
+    background: #1a171b linear-gradient(#58585a, #1a171b) no-repeat
+}
+
+body, body > header, body > header *, body > nav, body > nav *, body > .tools, body > .tools *, body > main, body > footer, #footer * {
+    border: 0;
+    line-height: 125%
+}
+
+body {
+    font: 12px "Lucida Sans Unicode", "Lucida Grande", "Tahoma", sans-serif;
+    font-weight: normal;
+    font-style: normal
+}
+
+#right * {
+    font-size: 12px
+}
+
+#right form label {
+    float: left;
+    display: block;
+    margin: 0 6px 0 0
+}
+
+#right form input {
+    width: 160px;
+    height: 18px
+}
+
+#right section ul {
+    margin: 6px 0;
+    padding-left: 18px
+}
+
+#right section ul li a {
+    text-decoration: none
+}
+
+#footer p {
+    color: rgba(255, 255, 255, .95)
+}
+
+#main {
+    /*overflow: hidden*/
+}
+
+#main h3 {
+    clear: right
+}
+
+/* theme.css */
+#header {
+    padding-left: 16px
+}
+
+#header div {
+}
+
+#header h1 {
+}
+
+#header p {
+}
+
+#header .banner {
+    margin-right: 15px
+}
+
+#header .banner img {
+    width: 100%;
+    min-width: 500px
+}
+
+#left .mod_navigation {
+    width: 120px;
+    float: left;
+    display: block;
+    margin: 0 15px 15px;
+    background-color: rgba(255, 255, 255, .95);
+    box-shadow: 0 0 10px 5px #000
+}
+
+#left .mod_navigation ul {
+    margin: 5px;
+    padding: 0;
+    list-style-type: none
+}
+
+#left .mod_navigation li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.95)
+}
+
+#left .mod_navigation li.active a {
+    background-color: #799914;
+    color: rgba(255, 255, 255, .95)
+}
+
+#left .mod_navigation li a, #left .mod_navigation li a:link, #left .mod_navigation li a:visited, #left .mod_navigation li span {
+    display: block;
+    padding: 6px;
+    background-color: #abd81e;
+    font-size: 16px;
+    text-decoration: none;
+    color: rgba(255, 255, 255, .95)
+}
+
+#left .mod_navigation li a:active, #left .mod_navigation li a:hover, #left .mod_navigation li.active span {
+    background-color: #799914;
+    color: rgba(255, 255, 255, .95)
+}
+
+#right {
+    width: 260px;
+    float: right;
+    display: block
+}
+
+#right form {
+    overflow: auto;
+    margin: 0 15px 15px;
+    padding: 6px 0 6px 6px;
+    background-color: #abd81e;
+    box-shadow: 0 0 10px 5px #000
+}
+
+#right form button {
+    width: 50px;
+    height: 18px
+}
+
+#right section.links {
+    margin: 0 15px 15px;
+    padding: 6px;
+    background-color: rgba(255, 255, 255, .95);
+    box-shadow: 0 0 10px 5px #000
+}
+
+#right section h1 {
+    padding: 6px;
+    background-color: #abd81e;
+    font-size: 12px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, .95)
+}
+
+#right section ul li a, #right section ul li a:link, #right section ul li a:visited {
+    color: #799914
+}
+
+#right section ul li a:active, #right section ul li a:hover {
+    color: #abd81e
+}
+
+#main {
+    display: block;
+    margin: 15px 260px 0 150px;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, .95);
+    box-shadow: 0 0 10px 5px #000
+}
+
+#main img {
+    margin: 10px
+}
+
+#main .ce_form td {
+    border-bottom: 0
+}
+
+#main .inside a, #main .inside a:link, #main .inside a:visited {
+    color: #799914
+}
+
+#main .inside a:active, #main .inside a:hover {
+    color: #abd81e
+}
+
+#footer {
+    clear: both;
+    display: block;
+    padding: 12px 12px 12px 150px;
+    background: none
+}
+
+#footer p a, #footer p a:link, #footer p a:visited {
+    font-size: 12px;
+    text-decoration: none;
+    color: rgba(255, 255, 255, .95)
+}
+
+#footer p a:active, #footer p a:hover {
+    color: #abd81e
+}
+
+#main blockquote {
+    position: relative;
+    line-height: 20px
+}
+
+#main blockquote::before {
+    position: absolute;
+    display: block;
+    font-size: 48px;
+    content: 'â€œ'
+}
+
+.invisible {
+    width: 0px;
+    height: 0px;
+    left: -1000px;
+    position: absolute;
+    overflow: hidden;
+    display: inline;
+    top: -1000px
+}

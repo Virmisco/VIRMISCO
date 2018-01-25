@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified"
+        elementFormDefault="qualified"
+        targetNamespace="urn:uuid:c3848059-8c74-453e-8a9c-ab4f64b37bce"
+        xmlns:urn="urn:uuid:c3848059-8c74-453e-8a9c-ab4f64b37bce"
+        xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="metadata">
+        <xs:annotation>
+            <xs:documentation>
+                A container holding various definitions on how to extract metadata from the original XML documents.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="urn:namespace" />
+                <xs:element maxOccurs="unbounded" minOccurs="1" ref="urn:field" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="namespace">
+        <xs:annotation>
+            <xs:documentation>
+                A namespace declaration for evaluating the XPath expressions defined in the matchNodes elements.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:anyURI">
+                    <xs:attribute name="prefix" type="xs:NCName" use="required" />
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="field">
+        <xs:annotation>
+            <xs:documentation>
+                A field definition that specifies how to capture a single field of metadata from the raw sources.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="urn:files" />
+                <xs:element ref="urn:nodes" />
+                <xs:element minOccurs="0" ref="urn:convert" />
+                <xs:element ref="urn:combine" />
+            </xs:sequence>
+            <xs:attribute name="name" type="xs:string" use="required" />
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="files">
+        <xs:annotation>
+            <xs:documentation>
+                Selects the files to process based on the regular expression in its text content. This regexp must not
+                be fenced and allows unescaped slashes.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:attributeGroup ref="urn:regexpAttrs" />
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="nodes">
+        <xs:annotation>
+            <xs:documentation>
+                Selects the nodes to process based on the given XPath expression. The namespace prefixes used here must
+                be registered either locally (on this element) or globally (on the document element).
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:attribute name="xpath" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        The XPath expression selecting the nodes to process. Names must be namespaced even when they
+                        don't have a prefix and are in the default namespace. The namespace prefixes used here must be
+                        registered either locally (on this element) or globally (on the document element).
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="convert">
+        <xs:annotation>
+            <xs:documentation>
+                A conversion to apply to each text chunk contained in a node matching the XPath expression.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:choice>
+                <xs:element ref="urn:choose" />
+                <xs:element ref="urn:collapseWhitespace" />
+                <xs:element ref="urn:parseDate" />
+                <xs:element ref="urn:parseFloat" />
+                <xs:element ref="urn:parseInt" />
+                <xs:element ref="urn:userDefined" />
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="combine">
+        <xs:annotation>
+            <xs:documentation>
+                Combines the multiple values resulting from the conversion into one single value. Use the function
+                attribute for predefined combinators or omit the attribute and specify a user-defined function in the
+                text content which must accept one argument containing an array of values. If no conversion has been
+                specified, the raw strings from the matching nodes are used as input.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute name="function">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                                <xs:enumeration value="unique">
+                                    <xs:annotation>
+                                        <xs:documentation>
+                                            There must be only one unique value or all values must be equal, otherwise
+                                            an error is thrown.
+                                        </xs:documentation>
+                                    </xs:annotation>
+                                </xs:enumeration>
+                                <xs:enumeration value="min">
+                                    <xs:annotation>
+                                        <xs:documentation>
+                                            The minimum of all values is returned, which is the lowest number, the
+                                            string with the earliest sort position, the earliest date or the false one
+                                            of two different boolean values.
+                                        </xs:documentation>
+                                    </xs:annotation>
+                                </xs:enumeration>
+                                <xs:enumeration value="max">
+                                    <xs:annotation>
+                                        <xs:documentation>
+                                            The maximum of all values is returned, which is the highest number, the
+                                            string with the latest sort position, the latest date or the true one of two
+                                            different boolean values.
+                                        </xs:documentation>
+                                    </xs:annotation>
+                                </xs:enumeration>
+                                <xs:enumeration value="avg">
+                                    <xs:annotation>
+                                        <xs:documentation>
+                                            The average of all values is returned, which is the arithmetic mean for
+                                            numbers and dates, the boolean that occurred most frequently (but false for
+                                            balance) or a synthesized string with characters that represent the average
+                                            ASCII value of all the characters at the respective position in the input
+                                            string, where shorter strings are padded with space characters.
+                                        </xs:documentation>
+                                    </xs:annotation>
+                                </xs:enumeration>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="regexpAttrs">
+        <xs:attribute name="match" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    Specifies the regular expression, which must be unfenced. Flags may be specified using the optional
+                    flags attribute.
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="flags" type="xs:NCName" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    Specifies the optional flags for the regular expression.
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:attributeGroup>
+    <xs:element name="choose">
+        <xs:annotation>
+            <xs:documentation>
+                Returns the value from the first matching when element or the value from the otherwise element or throws
+                an error when none of the cases match but an otherwise element is missing as well.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="urn:when" />
+                <xs:element minOccurs="0" ref="urn:otherwise" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="collapseWhitespace" type="xs:string">
+        <xs:annotation>
+            <xs:documentation>
+                Returns a string containing the text value of the input with any whitespace collapsed and replaced by a
+                single space character and with leading and trailing whitespace removed completely.
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="parseDate" type="urn:emptyType" />
+    <xs:element name="parseFloat" type="urn:parseNumberType" />
+    <xs:element name="parseInt" type="urn:parseNumberType" />
+    <xs:element name="userDefined" type="xs:string" />
+    <xs:element name="when">
+        <xs:annotation>
+            <xs:documentation>Returns the specified value element only when the input matches the regular expression
+                given in the match attribute.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="urn:literalType">
+                    <xs:attributeGroup ref="urn:regexpAttrs" />
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="otherwise" type="urn:literalType">
+        <xs:annotation>
+            <xs:documentation>
+                Returns the specified value element only when none of the preceding when branches matched.
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:simpleType name="emptyType">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="0" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="parseNumberType">
+        <xs:annotation>
+            <xs:documentation>
+                Converts the value to a numeric type (int or float, depending on the element name). It supports the
+                comma as a decimal separator (common in certain locales). By specifying unit elements as children, it is
+                possible to process physical quantities that consist of an amount and a unit symbol, optionally preceded
+                by an SI prefix.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="urn:unit" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="literalType">
+        <xs:choice>
+            <xs:element ref="urn:bool" />
+            <xs:element ref="urn:float" />
+            <xs:element ref="urn:int" />
+            <xs:element ref="urn:string" />
+        </xs:choice>
+    </xs:complexType>
+    <xs:element name="unit">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute name="si-prefix" use="required">
+                        <xs:annotation>
+                            <xs:documentation>Specifies how to treat the SI prefix preceding the unit symbol.
+                            </xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                                <xs:enumeration value="keep">
+                                    <xs:annotation>
+                                        <xs:documentation>
+                                            Keep the prefix in the result and return a string value.
+                                        </xs:documentation>
+                                    </xs:annotation>
+                                </xs:enumeration>
+                                <xs:enumeration value="multiply">
+                                    <xs:annotation>
+                                        <xs:documentation>
+                                            Convert the value to the base unit multiplying the SI prefix away.
+                                        </xs:documentation>
+                                    </xs:annotation>
+                                </xs:enumeration>
+                                <xs:enumeration value="forbid">
+                                    <xs:annotation>
+                                        <xs:documentation>
+                                            Disallow any SI prefixes and emit an error if one is used.
+                                        </xs:documentation>
+                                    </xs:annotation>
+                                </xs:enumeration>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                    <xs:attribute name="symbol" use="required">
+                        <xs:annotation>
+                            <xs:documentation>Specifies how to treat the unit symbol.</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                                <xs:enumeration value="keep">
+                                    <xs:annotation>
+                                        <xs:documentation>
+                                            Keep the unit symbol in the result and return a string value.
+                                        </xs:documentation>
+                                    </xs:annotation>
+                                </xs:enumeration>
+                                <xs:enumeration value="strip">
+                                    <xs:annotation>
+                                        <xs:documentation>
+                                            Strip off the unit symbol from the result and return a numeric value.
+                                        </xs:documentation>
+                                    </xs:annotation>
+                                </xs:enumeration>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="bool" type="xs:boolean" />
+    <xs:element name="float" type="xs:float" />
+    <xs:element name="int" type="xs:byte" />
+    <xs:element name="string" type="xs:string" />
+</xs:schema>

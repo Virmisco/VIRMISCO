@@ -1,0 +1,126 @@
+<h2>Manage organisms</h2>
+<form class="form-horizontal">
+    <p>
+        <a href="#/organism/new/" class="btn btn-default">Describe another organism</a>
+    </p>
+    <table class="table table-condensed table-striped">
+        <thead>
+            <tr>
+                <td>
+                    <label class="sr-only" for="icf1">Filter by carrier number</label>
+                </td>
+                <td></td>
+                <td>
+                    <label class="sr-only" for="icf2">Filter by valid name</label>
+                </td>
+                <td></td>
+                <td>
+                    <label class="sr-only" for="icf3">Filter by location</label>
+                </td>
+                <td>
+                    <label class="sr-only" for="icf4">Filter by agent</label>
+                </td>
+                <td colspan="2"></td>
+            </tr>
+            <tr>
+                <td>
+                    <input id="icf1"
+                            class="form-control"
+                            type="search"
+                            size="5"
+                            autocomplete="off"
+                            placeholder="filter"
+                            data-ng-model="vm.filter.carrierNumber" />
+                </td>
+                <td></td>
+                <td>
+                    <input id="icf2"
+                            class="form-control"
+                            type="search"
+                            size="5"
+                            autocomplete="off"
+                            placeholder="filter"
+                            data-ng-model="vm.filter.validName" />
+                </td>
+                <td></td>
+                <td>
+                    <input id="icf3"
+                            class="form-control"
+                            type="search"
+                            size="5"
+                            autocomplete="off"
+                            placeholder="filter"
+                            data-ng-model="vm.filter.location" />
+                </td>
+                <td>
+                    <input id="icf4"
+                            class="form-control"
+                            type="search"
+                            size="5"
+                            autocomplete="off"
+                            placeholder="filter"
+                            data-ng-model="vm.filter.agent" />
+                </td>
+                <td colspan="2">
+                    <button class="btn btn-default form-control" data-ng-click="vm.filter = {}">clear all filters</button>
+                </td>
+            </tr>
+            <tr>
+                <th class="column-sort" data-ng-class="{
+                        asc: vm.sort === 'carrierNumber' && !vm.desc,
+                        desc: vm.sort === 'carrierNumber' && vm.desc
+                    }" data-ng-click="vm.sortBy('carrierNumber')">Carrier no.
+                </th>
+                <th class="column-sort" data-ng-class="{
+                        asc: vm.sort === 'sequenceNumber' && !vm.desc,
+                        desc: vm.sort === 'sequenceNumber' && vm.desc
+                    }" data-ng-click="vm.sortBy('sequenceNumber')">Seq. no.
+                </th>
+                <th class="column-sort" data-ng-class="{
+                        asc: vm.sort === 'validName' && !vm.desc,
+                        desc: vm.sort === 'validName' && vm.desc
+                    }" data-ng-click="vm.sortBy('validName')">Valid name
+                </th>
+                <th class="column-sort" data-ng-class="{
+                        asc: vm.sort === 'typeStatus' && !vm.desc,
+                        desc: vm.sort === 'typeStatus' && vm.desc
+                    }" data-ng-click="vm.sortBy('typeStatus')">Type status
+                </th>
+                <th class="column-sort" data-ng-class="{
+                        asc: vm.sort === 'location' && !vm.desc,
+                        desc: vm.sort === 'location' && vm.desc
+                    }" data-ng-click="vm.sortBy('location')">Loca­tion
+                </th>
+                <th class="column-sort" data-ng-class="{
+                        asc: vm.sort === 'agent' && !vm.desc,
+                        desc: vm.sort === 'agent' && vm.desc
+                    }" data-ng-click="vm.sortBy('agent')">Agent
+                </th>
+                <th class="column-sort" data-ng-class="{
+                        asc: vm.sort === 'date' && !vm.desc,
+                        desc: vm.sort === 'date' && vm.desc
+                    }" data-ng-click="vm.sortBy('date')">Date
+                </th>
+                <th class="column-sort" data-ng-class="{
+                        asc: vm.sort === 'numberOfPhotomicrographs' && !vm.desc,
+                        desc: vm.sort === 'numberOfPhotomicrographs' && vm.desc
+                    }" data-ng-click="vm.sortBy('numberOfPhotomicrographs')">No. of photo­micro­graphs
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-ng-repeat="organism in vm.organisms | filter:vm.filter | orderBy:vm.sort:vm.desc">
+                <td>
+                    <a data-ng-href="#organism/{{organism.id}}">{{organism.carrierNumber}}</a>
+                </td>
+                <td>{{organism.sequenceNumber}}</td>
+                <td>{{organism.validName}}</td>
+                <td>{{organism.typeStatus}}</td>
+                <td>{{organism.location}}</td>
+                <td>{{organism.agent}}</td>
+                <td>{{organism.date}}</td>
+                <td>{{organism.numberOfPhotomicrographs || ''}}</td>
+            </tr>
+        </tbody>
+    </table>
+</form>

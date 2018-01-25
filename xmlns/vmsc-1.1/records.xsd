@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified"
+        elementFormDefault="qualified"
+        targetNamespace="http://virmisco.org/xmlns/vmsc-1.1/"
+        xmlns="http://virmisco.org/xmlns/vmsc-1.1/"
+        xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!-- possible document elements -->
+    <xs:element name="records" type="records-type" />
+    <xs:element name="gathering" type="gathering-type" />
+    <xs:element name="specimen-carrier" type="specimen-carrier-type" />
+    <xs:element name="taxon" type="taxon-type" />
+    <xs:element name="photomicrograph" type="photomicrograph-type" />
+
+    <xs:complexType name="records-type">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="gathering" type="gathering-type" />
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="specimen-carrier" type="specimen-carrier-type" />
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="taxon" type="taxon-type" />
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="photomicrograph" type="photomicrograph-type" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="gathering-type">
+        <xs:sequence>
+            <xs:element name="id" type="xs:string" />
+            <xs:element minOccurs="0" name="journal-number" type="xs:string" />
+            <xs:element minOccurs="0" name="sampling-date" type="sampling-date-type" />
+            <xs:element minOccurs="0" name="agent" type="agent-type" />
+            <xs:element minOccurs="0" name="location" type="location-type" />
+            <xs:element minOccurs="0" name="remarks" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="specimen-carrier-type">
+        <xs:sequence>
+            <xs:element name="id" type="xs:string" />
+            <xs:element name="gathering-id" type="xs:string" />
+            <xs:element minOccurs="0" name="carrier-number" type="xs:string" />
+            <xs:element minOccurs="0" name="preparation-type" type="xs:string" />
+            <xs:element minOccurs="0" name="owner" type="xs:string" />
+            <xs:element minOccurs="0" name="previous-collection" type="xs:string" />
+            <xs:element minOccurs="0" name="label-transcript" type="xs:string" />
+            <xs:element minOccurs="0" name="carrier-scans" type="carrier-scans-type" />
+            <xs:element minOccurs="0" name="organisms" type="organisms-type" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="taxon-type">
+        <xs:sequence>
+            <xs:element name="id" type="xs:string" />
+            <xs:element name="valid-name" type="scientific-name-type" />
+            <xs:element minOccurs="0" name="synonyms" type="synonyms-type" />
+            <xs:element minOccurs="0" name="higher-taxa" type="higher-taxa-type" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="photomicrograph-type">
+        <xs:sequence>
+            <xs:element name="id" type="xs:string" />
+            <xs:element name="organism-id" type="xs:string" />
+            <xs:element minOccurs="0" name="title" type="xs:string" />
+            <xs:element minOccurs="0" name="detail-of" type="detail-of-type" />
+            <xs:element minOccurs="0" name="file" type="file-type" />
+            <xs:element minOccurs="0" name="presentation-uri" type="xs:anyURI" />
+            <xs:element minOccurs="0" name="digitization-data" type="digitization-data-type" />
+            <xs:element minOccurs="0" name="hardware" type="hardware-type" />
+            <xs:element minOccurs="0" name="microscope-settings" type="microscope-settings-type" />
+            <xs:element minOccurs="0" name="focal-plane-images" type="focal-plane-images-type" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="sampling-date-type">
+        <xs:sequence>
+            <xs:element name="after" type="xs:dateTime" />
+            <xs:element name="before" type="xs:dateTime" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="agent-type">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="person" type="xs:string" />
+            <xs:element minOccurs="0" name="organization" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="location-type">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="country" type="xs:string" />
+            <xs:element minOccurs="0" name="province" type="xs:string" />
+            <xs:element minOccurs="0" name="region" type="xs:string" />
+            <xs:element minOccurs="0" name="place" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="carrier-scans-type">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="file" type="file-type" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="organisms-type">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="organism" type="organism-type" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="scientific-name-type">
+        <xs:sequence>
+            <xs:element name="id" type="xs:string" />
+            <xs:element name="genus" type="xs:string" />
+            <xs:element minOccurs="0" name="subgenus" type="xs:string" />
+            <xs:element name="specific-epithet" type="xs:string" />
+            <xs:element minOccurs="0" name="infraspecific-epithet" type="xs:string" />
+            <xs:element name="authorship" type="xs:string" />
+            <xs:element name="year" type="xs:gYear" />
+            <xs:element name="is-parenthesized" type="xs:boolean" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="synonyms-type">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="scientific-name" type="scientific-name-type" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="higher-taxa-type">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="regnum" type="xs:string" />
+            <xs:element minOccurs="0" name="subregnum" type="xs:string" />
+            <xs:element minOccurs="0" name="superphylum" type="xs:string" />
+            <xs:element minOccurs="0" name="phylum" type="xs:string" />
+            <xs:element minOccurs="0" name="subphylum" type="xs:string" />
+            <xs:element minOccurs="0" name="superclassis" type="xs:string" />
+            <xs:element minOccurs="0" name="classis" type="xs:string" />
+            <xs:element minOccurs="0" name="subclassis" type="xs:string" />
+            <xs:element minOccurs="0" name="superordo" type="xs:string" />
+            <xs:element minOccurs="0" name="ordo" type="xs:string" />
+            <xs:element minOccurs="0" name="subordo" type="xs:string" />
+            <xs:element minOccurs="0" name="superfamilia" type="xs:string" />
+            <xs:element minOccurs="0" name="familia" type="xs:string" />
+            <xs:element minOccurs="0" name="subfamilia" type="xs:string" />
+            <xs:element minOccurs="0" name="tribus" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="detail-of-type">
+        <xs:sequence>
+            <xs:element name="photomicrograph-id" type="xs:string" />
+            <xs:element minOccurs="0" name="hotspot" type="hotspot-type" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="file-type">
+        <xs:sequence>
+            <xs:element name="real-path" type="xs:anyURI" />
+            <xs:element minOccurs="0" name="uri" type="xs:anyURI" />
+            <xs:element minOccurs="0" name="creation-time" type="xs:dateTime" />
+            <xs:element minOccurs="0" name="modification-time" type="xs:dateTime" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="digitization-data-type">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="width" type="xs:unsignedShort" />
+            <xs:element minOccurs="0" name="height" type="xs:unsignedShort" />
+            <xs:element minOccurs="0" name="color-depth" type="xs:unsignedByte" />
+            <xs:element minOccurs="0" name="reproduction-scale" type="reproduction-scale-type" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="hardware-type">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="camera" type="camera-type" />
+            <xs:element minOccurs="0" name="microscope" type="microscope-type" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="microscope-settings-type">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="contrast-method" type="xs:string" />
+            <xs:element minOccurs="0" name="dic-prism-position" type="xs:double" />
+            <xs:element minOccurs="0" name="aperture-diaphragm-opening" type="xs:double" />
+            <xs:element minOccurs="0" name="field-diaphragm-opening" type="xs:double" />
+            <xs:element minOccurs="0" name="is-polarizer-in-light-path" type="xs:boolean" />
+            <xs:element minOccurs="0" name="magnification-changer-magnification" type="xs:double" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="focal-plane-images-type">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="focal-plane-image" type="focal-plane-image-type" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="organism-type">
+        <xs:sequence>
+            <xs:element name="id" type="xs:string" />
+            <xs:element name="sequence-number" type="xs:string" />
+            <xs:choice minOccurs="0">
+                <xs:element name="identification" type="identification-type" />
+                <xs:element name="type-designation" type="type-designation-type" />
+            </xs:choice>
+            <xs:element minOccurs="0" name="phase-or-stage" type="xs:string" />
+            <xs:element minOccurs="0" name="sex" type="xs:string" />
+            <xs:element minOccurs="0" name="remarks" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="hotspot-type">
+        <xs:sequence>
+            <xs:element name="x" type="xs:unsignedInt" />
+            <xs:element name="y" type="xs:unsignedInt" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="reproduction-scale-type">
+        <xs:sequence>
+            <xs:element name="horizontal" type="xs:double" />
+            <xs:element name="vertical" type="xs:double" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="camera-type">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="camera-maker" type="xs:string" />
+            <xs:element minOccurs="0" name="camera-name" type="xs:string" />
+            <xs:element minOccurs="0" name="camera-article-or-serial-number" type="xs:string" />
+            <xs:element minOccurs="0" name="sensor-maker" type="xs:string" />
+            <xs:element minOccurs="0" name="sensor-name" type="xs:string" />
+            <xs:element minOccurs="0" name="sensor-article-or-serial-number" type="xs:string" />
+            <xs:element minOccurs="0" name="optical-format" type="xs:string" />
+            <xs:element minOccurs="0" name="capture-format" type="xs:string" />
+            <xs:element minOccurs="0" name="chip-width" type="xs:double" />
+            <xs:element minOccurs="0" name="chip-height" type="xs:double" />
+            <xs:element minOccurs="0" name="pixel-width" type="xs:double" />
+            <xs:element minOccurs="0" name="pixel-height" type="xs:double" />
+            <xs:element minOccurs="0" name="active-pixels-hor" type="xs:unsignedInt" />
+            <xs:element minOccurs="0" name="active-pixels-ver" type="xs:unsignedInt" />
+            <xs:element minOccurs="0" name="color-filter-array" type="xs:string" />
+            <xs:element minOccurs="0" name="protective-color-filter" type="xs:string" />
+            <xs:element minOccurs="0" name="adc-resolution" type="xs:string" />
+            <xs:element minOccurs="0" name="dynamic-range" type="xs:double" />
+            <xs:element minOccurs="0" name="snr-max" type="xs:double" />
+            <xs:element minOccurs="0" name="readout-noise" type="xs:double" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="microscope-type">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="stand-maker" type="xs:string" />
+            <xs:element minOccurs="0" name="stand-name" type="xs:string" />
+            <xs:element minOccurs="0" name="stand-article-or-serial-number" type="xs:string" />
+            <xs:element minOccurs="0" name="condenser-maker" type="xs:string" />
+            <xs:element minOccurs="0" name="condenser-name" type="xs:string" />
+            <xs:element minOccurs="0" name="condenser-article-or-serial-number" type="xs:string" />
+            <xs:element minOccurs="0" name="condenser-turret-prism-maker" type="xs:string" />
+            <xs:element minOccurs="0" name="condenser-turret-prism-name" type="xs:string" />
+            <xs:element minOccurs="0" name="condenser-turret-prism-article-or-serial-number" type="xs:string" />
+            <xs:element minOccurs="0" name="nosepiece-objective-maker" type="xs:string" />
+            <xs:element minOccurs="0" name="nosepiece-objective-name" type="xs:string" />
+            <xs:element minOccurs="0" name="nosepiece-objective-article-or-serial-number" type="xs:string" />
+            <xs:element minOccurs="0" name="nosepiece-objective-type" type="xs:string" />
+            <xs:element minOccurs="0" name="nosepiece-objective-numerical-aperture" type="xs:double" />
+            <xs:element minOccurs="0" name="nosepiece-objective-magnification" type="xs:double" />
+            <xs:element minOccurs="0" name="dic-turret-prism-maker" type="xs:string" />
+            <xs:element minOccurs="0" name="dic-turret-prism-name" type="xs:string" />
+            <xs:element minOccurs="0" name="dic-turret-prism-article-or-serial-number" type="xs:string" />
+            <xs:element minOccurs="0" name="magnification-changer-maker" type="xs:string" />
+            <xs:element minOccurs="0" name="magnification-changer-name" type="xs:string" />
+            <xs:element minOccurs="0" name="magnification-changer-article-or-serial-number" type="xs:string" />
+            <xs:element minOccurs="0" name="number-of-ports" type="xs:unsignedByte" />
+            <xs:element minOccurs="0" name="ports-maker" type="xs:string" />
+            <xs:element minOccurs="0" name="ports-name" type="xs:string" />
+            <xs:element minOccurs="0" name="ports-article-or-serial-number" type="xs:string" />
+            <xs:element minOccurs="0" name="camera-mount-adapter-maker" type="xs:string" />
+            <xs:element minOccurs="0" name="camera-mount-adapter-name" type="xs:string" />
+            <xs:element minOccurs="0" name="camera-mount-adapter-article-or-serial-number" type="xs:string" />
+            <xs:element minOccurs="0" name="camera-mount-adapter-magnification" type="xs:double" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="focal-plane-image-type">
+        <xs:sequence>
+            <xs:element name="id" type="xs:string" />
+            <xs:element minOccurs="0" name="focus-position" type="xs:double" />
+            <xs:element minOccurs="0" name="file" type="file-type" />
+            <xs:element minOccurs="0" name="presentation-uri" type="xs:anyURI" />
+            <xs:element minOccurs="0" name="exposure-settings" type="exposure-settings-type" />
+            <xs:element minOccurs="0" name="histogram-settings" type="histogram-settings-type" />
+            <xs:element minOccurs="0" name="post-processing-settings" type="post-processing-settings-type" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="identification-type">
+        <xs:sequence>
+            <xs:element name="scientific-name-id" type="xs:string" />
+            <xs:element minOccurs="0" name="identifier" type="xs:string" />
+            <xs:element minOccurs="0" name="qualifier" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="type-designation-type">
+        <xs:sequence>
+            <xs:element name="scientific-name-id" type="xs:string" />
+            <xs:element name="type-status" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="exposure-settings-type">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="duration" type="xs:double" />
+            <xs:element minOccurs="0" name="gain" type="xs:double" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="histogram-settings-type">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="gamma" type="xs:double" />
+            <xs:element minOccurs="0" name="black-clip" type="xs:unsignedByte" />
+            <xs:element minOccurs="0" name="white-clip" type="xs:unsignedByte" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="post-processing-settings-type">
+        <xs:sequence>
+            <xs:element name="shading" type="xs:boolean" />
+            <xs:element name="sharpening" type="xs:boolean" />
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

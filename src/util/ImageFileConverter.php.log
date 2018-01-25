@@ -1,0 +1,42 @@
+/usr/bin/convert '/var/www/html/viewer-prototype/img/464132f7-a904-4f3f-934c-396ce0d97884/plane-001.tif' '/var/www/html/viewer-prototype/img/464132f7-a904-4f3f-934c-396ce0d97884/0001.tmp.pnm'
+ERRORLEVEL=127
+cjpeg -qua 95 -opt -pro -dct int -smooth 0 -sample 2x2 -outfile '/var/www/html/viewer-prototype/img/464132f7-a904-4f3f-934c-396ce0d97884/0001.420.jpg' '/var/www/html/viewer-prototype/img/464132f7-a904-4f3f-934c-396ce0d97884/0001.tmp.pnm'
+ERRORLEVEL=127
+cjpeg -qua 95,33 -opt -pro -dct int -smooth 0 -sample 1x1 -outfile '/var/www/html/viewer-prototype/img/464132f7-a904-4f3f-934c-396ce0d97884/0001.444.jpg' '/var/www/html/viewer-prototype/img/464132f7-a904-4f3f-934c-396ce0d97884/0001.tmp.pnm'
+ERRORLEVEL=127
+/usr/bin/convert '/var/www/html/viewer-prototype/img/464132f7-a904-4f3f-934c-396ce0d97884/plane-002.tif' '/var/www/html/viewer-prototype/img/464132f7-a904-4f3f-934c-396ce0d97884/0002.tmp.pnm'
+ERRORLEVEL=127
+cjpeg -qua 95 -opt -pro -dct int -smooth 0 -sample 2x2 -outfile '/var/www/html/viewer-prototype/img/464132f7-a904-4f3f-934c-396ce0d97884/0002.420.jpg' '/var/www/html/viewer-prototype/img/464132f7-a904-4f3f-934c-396ce0d97884/0002.tmp.pnm'
+ERRORLEVEL=127
+cjpeg -qua 95,33 -opt -pro -dct int -smooth 0 -sample 1x1 -outfile '/var/www/html/viewer-prototype/img/464132f7-a904-4f3f-934c-396ce0d97884/0002.444.jpg' '/var/www/html/viewer-prototype/img/464132f7-a904-4f3f-934c-396ce0d97884/0002.tmp.pnm'
+ERRORLEVEL=127
+/usr/bin/convert '/var/www/html/viewer-prototype/img/464132f7-a904-4f3f-934c-396ce0d97884/plane-003.tif' '/var/www/html/viewer-prototype/img/464132f7-a904-4f3f-934c-396ce0d97884/0003.tmp.pnm'
+ERRORLEVEL=127
+cjpeg -qua 95 -opt -pro -dct int -smooth 0 -sample 2x2 -outfile '/var/www/html/viewer-prototype/img/464132f7-a904-4f3f-934c-396ce0d97884/0003.420.jpg' '/var/www/html/viewer-prototype/img/464132f7-a904-4f3f-934c-396ce0d97884/0003.tmp.pnm'
+ERRORLEVEL=127
+cjpeg -qua 95,33 -opt -pro -dct int -smooth 0 -sample 1x1 -outfile '/var/www/html/viewer-prototype/img/464132f7-a904-4f3f-934c-396ce0d97884/0003.444.jpg' '/var/www/html/viewer-prototype/img/464132f7-a904-4f3f-934c-396ce0d97884/0003.tmp.pnm'
+ERRORLEVEL=127
+/usr/bin/convert '/var/www/html/viewer-prototype/img/464132f7-a904-4f3f-934c-396ce0d97884/plane-004.tif' '/var/www/html/viewer-prototype/img/464132f7-a904-4f3f-934c-396ce0d97884/0004.tmp.pnm'
+ERRORLEVEL=127
+cjpeg -qua 95 -opt -pro -dct int -smooth 0 -sample 2x2 -outfile '/var/www/html/viewer-prototype/img/464132f7-a904-4f3f-934c-396ce0d97884/0004.420.jpg' '/var/www/html/viewer-prototype/img/464132f7-a904-4f3f-934c-396ce0d97884/0004.tmp.pnm'
+ERRORLEVEL=127
+cjpeg -qua 95,33 -opt -pro -dct int -smooth 0 -sample 1x1 -outfile '/var/www/html/viewer-prototype/img/464132f7-a904-4f3f-934c-396ce0d97884/0004.444.jpg' '/var/www/html/viewer-prototype/img/464132f7-a904-4f3f-934c-396ce0d97884/0004.tmp.pnm'
+ERRORLEVEL=127
+/usr/bin/convert '/var/www/html/viewer-prototype/img/464132f7-a904-4f3f-934c-396ce0d97884/plane-005.tif' '/var/www/html/viewer-prototype/img/464132f7-a904-4f3f-934c-396ce0d97884/0005.tmp.pnm'
+ERRORLEVEL=127
+cjpeg -qua 95 -opt -pro -dct int -smooth 0 -sample 2x2 -outfile '/var/www/html/viewer-prototype/img/464132f7-a904-4f3f-934c-396ce0d97884/0005.420.jpg' '/var/www/html/viewer-prototype/img/464132f7-a904-4f3f-934c-396ce0d97884/0005.tmp.pnm'
+ERRORLEVEL=127
+cjpeg -qua 95,33 -opt -pro -dct int -smooth 0 -sample 1x1 -outfile '/var/www/html/viewer-prototype/img/464132f7-a904-4f3f-934c-396ce0d97884/0005.444.jpg' '/var/www/html/viewer-prototype/img/464132f7-a904-4f3f-934c-396ce0d97884/0005.tmp.pnm'
+ERRORLEVEL=127
+/usr/bin/convert '/var/www/html/viewer-prototype/img/464132f7-a904-4f3f-934c-396ce0d97884/plane-006.tif' '/var/www/html/viewer-prototype/img/464132f7-a904-4f3f-934c-396ce0d97884/0006.tmp.pnm'
+ERRORLEVEL=127
+cjpeg -qua 95 -opt -pro -dct int -smooth 0 -sample 2x2 -outfile '/var/www/html/viewer-prototype/img/464132f7-a904-4f3f-934c-396ce0d97884/0006.420.jpg' '/var/www/html/viewer-prototype/img/464132f7-a904-4f3f-934c-396ce0d97884/0006.tmp.pnm'
+ERRORLEVEL=127
+cjpeg -qua 95,33 -opt -pro -dct int -smooth 0 -sample 1x1 -outfile '/var/www/html/viewer-prototype/img/464132f7-a904-4f3f-934c-396ce0d97884/0006.444.jpg' '/var/www/html/viewer-prototype/img/464132f7-a904-4f3f-934c-396ce0d97884/0006.tmp.pnm'
+ERRORLEVEL=127
+/usr/bin/convert '/var/www/html/viewer-prototype/img/464132f7-a904-4f3f-934c-396ce0d97884/plane-000.tif' '/var/www/html/viewer-prototype/img/464132f7-a904-4f3f-934c-396ce0d97884/0000.tmp.pnm'
+ERRORLEVEL=127
+cjpeg -qua 95 -opt -pro -dct int -smooth 0 -sample 2x2 -outfile '/var/www/html/viewer-prototype/img/464132f7-a904-4f3f-934c-396ce0d97884/0000.420.jpg' '/var/www/html/viewer-prototype/img/464132f7-a904-4f3f-934c-396ce0d97884/0000.tmp.pnm'
+ERRORLEVEL=127
+cjpeg -qua 95,33 -opt -pro -dct int -smooth 0 -sample 1x1 -outfile '/var/www/html/viewer-prototype/img/464132f7-a904-4f3f-934c-396ce0d97884/0000.444.jpg' '/var/www/html/viewer-prototype/img/464132f7-a904-4f3f-934c-396ce0d97884/0000.tmp.pnm'
+ERRORLEVEL=127

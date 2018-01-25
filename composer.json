@@ -1,0 +1,25 @@
+{
+    "name": "sesogr/virmisco",
+    "description": "The “Virtual Microscopic Slide Collection” is a digitization project at the “Senckenberg Museum für Naturkunde Görlitz” (Natural history museum).",
+    "minimum-stability": "dev",
+    "license": "CC0-1.0",
+    "authors": [
+        {
+            "name": "SednaSoft A. Schaffhirt & A. Wünsche GbR",
+            "email": "info@sedna-soft.de"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "sednasoft\\virmisco\\": "src/"
+        }
+    },
+    "require": {
+        "behat/behat": "v2.5.5",
+        "behat/mink-extension": "v1.3.3",
+        "behat/mink-goutte-driver": "v1.1.0",
+        "fabpot/goutte": "1.*",
+        "predis/predis": "v1.0.1",
+        "michelf/php-markdown": "1.6.0"
+    }
+}

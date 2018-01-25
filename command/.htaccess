@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteCond %{REQUEST_METHOD} ^POST$
+RewriteCond %{REQUEST_FILENAME} !/front-controller\.php$
+RewriteRule ^([^/]+)/? front-controller.php?command=$1 [L]

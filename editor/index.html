@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="backend" data-ng-strict-di="">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="css/bootstrap.css"/>
+        <link rel="stylesheet" href="css/bootstrap-theme.css"/>
+        <style type="text/css">
+            thead th.column-sort { cursor: pointer; }
+            thead th.column-sort:after { content: ' △▽'; }
+            thead th.asc:after { content: ' ▲▽'; }
+            thead th.desc:after { content: ' △▼'; }
+            input.ng-invalid-validate { box-shadow: 0 0 3px #f00 !important; }
+            input.ng-invalid-required { box-shadow: 0 0 3px #f00 !important; }
+            h1 { display: none; }
+            h2 { font-size: 24px; }
+        </style>
+        <title>virmisco | backend</title>
+    </head>
+    <body class="container-fluid">
+        <header>
+            <h1>virmisco | backend</h1>
+        </header>
+        <main data-ng-view=""></main>
+        <script src="../js/https_ajax.googleapis.com_ajax_libs_angularjs_1.5.8_angular.min.js" data-live-src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+        <script src="../js/https_ajax.googleapis.com_ajax_libs_angularjs_1.5.8_angular-route.min.js" data-live-src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.min.js"></script>
+        <script src="../js/https_ajax.googleapis.com_ajax_libs_angularjs_1.5.8_angular-messages.js" data-live-src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-messages.min.js"></script>
+        <script src="../js/ui-bootstrap-tpls-2.1.3.min.js"></script>
+        <script src="js/backend/module.js"></script>
+        <script src="js/backend/config.js"></script>
+        <script src="js/backend/directive/validate.js"></script>
+        <script src="js/backend/service/uuid.js"></script>
+        <script src="js/backend/service/gbif-name-parser.js"></script>
+        <script src="js/backend/service/data-service.js"></script>
+        <script src="js/backend/service/gathering-service.js"></script>
+        <script src="js/backend/service/organism-service.js"></script>
+        <script src="js/backend/service/photomicrograph-service.js"></script>
+        <script src="js/backend/service/specimen-carrier-service.js"></script>
+        <script src="js/backend/service/taxon-service.js"></script>
+        <script src="js/backend/service/uploaded-raw-file-service.js"></script>
+        <script src="js/backend/controller/organism-list.js"></script>
+        <script src="js/backend/controller/organism-create.js"></script>
+        <script src="js/backend/controller/organism-detail.js"></script>
+        <script src="js/backend/controller/photomicrograph-create.js"></script>
+        <script src="js/backend/controller/photomicrograph-detail.js"></script>
+    </body>
+</html>
